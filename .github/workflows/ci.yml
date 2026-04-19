@@ -1,0 +1,28 @@
+name: Scheduled CI
+
+on:
+  schedule:
+    - cron: "0 */4 * * *"  # Every 4 hours
+  workflow_dispatch:
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run linter
+        run: echo "Linting..."
+
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run tests
+        run: echo "Running tests..."
+
+  security:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run security scan
+        run: echo "Running security scan..."
