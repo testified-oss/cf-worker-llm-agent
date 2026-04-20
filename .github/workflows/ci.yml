@@ -1,8 +1,8 @@
-name: Scheduled CI
+name: CI Pipeline with Security
 
 on:
   schedule:
-    - cron: "0 */4 * * *"  # Every 4 hours
+    - cron: "0 0 * * *"  # Daily at midnight
   workflow_dispatch:
 
 jobs:
@@ -11,18 +11,29 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Run linter
-        run: echo "Linting..."
+        run: |
+          echo "Running linter..."
+          # Add actual linting commands based on codebase
+          # e.g., npm run lint, dotnet format, etc.
 
   test:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - name: Run tests
-        run: echo "Running tests..."
+        run: |
+          echo "Running tests..."
+          # Add actual test commands with coverage reporting
+          # e.g., npm test -- --coverage, dotnet test --collect "XPlat Code Coverage"
 
   security:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - name: Run security scan
-        run: echo "Running security scan..."
+        run: |
+          echo "Running security scan..."
+          # Add security scanning tools:
+          # - Trivy for container image scanning
+          # - npm audit for dependency vulnerabilities
+          # - dotnet list package --vulnerable for .NET vulnerability scanning
