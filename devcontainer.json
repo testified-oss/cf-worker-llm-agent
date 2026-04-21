@@ -1,0 +1,20 @@
+{
+  "name": "CF Worker LLM Agent Dev Container",
+  "image": "mcr.microsoft.com/devcontainers/base:latest",
+  "features": {
+    "ghcr.io/devcontainers/features/git:1": {},
+    "ghcr.io/devcontainers/features/github-cli:1": {}
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "dbaeumer.vscode-eslint",
+        "esbenp.prettier-vscode"
+      ]
+    }
+  },
+  "mounts": [
+    "source=/tmp/build-cache,target=/tmp/build-cache,type=bind"
+  ],
+  "postCreateCommand": "echo 'Dev container ready for development'"
+}
